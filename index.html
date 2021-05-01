@@ -32,8 +32,7 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="data/CatPhotocopy_1.js"></script>
-        <script src="data/CatPhoto_2.js"></script>
+        <script src="data/CatPhoto_1.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -73,7 +72,7 @@
         });
         layer_DarkMatter_0;
         map.addLayer(layer_DarkMatter_0);
-        function pop_CatPhotocopy_1(feature, layer) {
+        function pop_CatPhoto_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -132,9 +131,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_CatPhotocopy_1_0() {
+        function style_CatPhoto_1_0() {
             return {
-                pane: 'pane_CatPhotocopy_1',
+                pane: 'pane_CatPhoto_1',
                 radius: 12.0,
                 opacity: 1,
                 color: 'rgba(50,87,128,1.0)',
@@ -148,121 +147,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_CatPhotocopy_1');
-        map.getPane('pane_CatPhotocopy_1').style.zIndex = 401;
-        map.getPane('pane_CatPhotocopy_1').style['mix-blend-mode'] = 'normal';
-        var layer_CatPhotocopy_1 = new L.geoJson(json_CatPhotocopy_1, {
+        map.createPane('pane_CatPhoto_1');
+        map.getPane('pane_CatPhoto_1').style.zIndex = 401;
+        map.getPane('pane_CatPhoto_1').style['mix-blend-mode'] = 'normal';
+        var layer_CatPhoto_1 = new L.geoJson(json_CatPhoto_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CatPhotocopy_1',
-            layerName: 'layer_CatPhotocopy_1',
-            pane: 'pane_CatPhotocopy_1',
-            onEachFeature: pop_CatPhotocopy_1,
+            dataVar: 'json_CatPhoto_1',
+            layerName: 'layer_CatPhoto_1',
+            pane: 'pane_CatPhoto_1',
+            onEachFeature: pop_CatPhoto_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_CatPhotocopy_1_0(feature));
+                return L.circleMarker(latlng, style_CatPhoto_1_0(feature));
             },
         });
-        bounds_group.addLayer(layer_CatPhotocopy_1);
-        map.addLayer(layer_CatPhotocopy_1);
-        function pop_CatPhoto_2(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Date</strong><br />' + (feature.properties['Date'] !== null ? autolinker.link(feature.properties['Date'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Time</strong><br />' + (feature.properties['Time'] !== null ? autolinker.link(feature.properties['Time'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Lon</strong><br />' + (feature.properties['Lon'] !== null ? autolinker.link(feature.properties['Lon'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Lat</strong><br />' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Altitude'] !== null ? autolinker.link(feature.properties['Altitude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['North'] !== null ? autolinker.link(feature.properties['North'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Azimuth'] !== null ? autolinker.link(feature.properties['Azimuth'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Camera Mak'] !== null ? autolinker.link(feature.properties['Camera Mak'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Camera Mod'] !== null ? autolinker.link(feature.properties['Camera Mod'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Title'] !== null ? autolinker.link(feature.properties['Title'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Comment'] !== null ? autolinker.link(feature.properties['Comment'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Path'] !== null ? autolinker.link(feature.properties['Path'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['RelPath'] !== null ? autolinker.link(feature.properties['RelPath'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Timestamp'] !== null ? autolinker.link(feature.properties['Timestamp'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_CatPhoto_2_0() {
-            return {
-                pane: 'pane_CatPhoto_2',
-                radius: 8.0,
-                opacity: 1,
-                color: 'rgba(61,128,53,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(84,176,74,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_CatPhoto_2');
-        map.getPane('pane_CatPhoto_2').style.zIndex = 402;
-        map.getPane('pane_CatPhoto_2').style['mix-blend-mode'] = 'normal';
-        var layer_CatPhoto_2 = new L.geoJson(json_CatPhoto_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_CatPhoto_2',
-            layerName: 'layer_CatPhoto_2',
-            pane: 'pane_CatPhoto_2',
-            onEachFeature: pop_CatPhoto_2,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_CatPhoto_2_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_CatPhoto_2);
-        map.addLayer(layer_CatPhoto_2);
+        bounds_group.addLayer(layer_CatPhoto_1);
+        map.addLayer(layer_CatPhoto_1);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -274,7 +178,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/CatPhoto_2.png" /> CatPhoto': layer_CatPhoto_2,'<img src="legend/CatPhotocopy_1.png" /> CatPhoto copy': layer_CatPhotocopy_1,"Dark Matter": layer_DarkMatter_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/CatPhoto_1.png" /> CatPhoto': layer_CatPhoto_1,"Dark Matter": layer_DarkMatter_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
